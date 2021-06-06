@@ -11,7 +11,8 @@ public class App {
         int p = myApp.readP();
         double r = myApp.readR();
         int t = myApp.readT();
-        System.out.println("After " + t + " years at " + r + "%, the investment will be worth " + myApp.calcA(p, r, t) + ".");
+        System.out.print("After " + t + " years at " + r + "%, the investment will be worth ");
+        System.out.printf("$%.2f.\n", myApp.calcA(p, r, t));
     }
     private int readP(){
         System.out.print("Enter the principal: ");
@@ -27,11 +28,7 @@ public class App {
     }
     private double calcA(int p, double r, int t){
         r = r/100.0;
-        double a = p*(1 + r*t);
-        if(((a * 100) % 1) > 0.5)
-            return a + 0.01;
-        else
-            return a;
+        return p*(1 + r*t);
 
     }
 }
